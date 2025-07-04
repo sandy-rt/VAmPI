@@ -2,11 +2,11 @@
 
 ## 1. Introduction
 
-This document outlines the security policy for the open-source repository maintained by Sandeep Tembare The purpose of this policy is to ensure the security and integrity of the software contained within the repository and to provide guidelines for reporting and addressing security issues.
+This document outlines the security policy for the open-source repository maintained by User  The purpose of this policy is to ensure the security and integrity of the software contained within the repository and to provide guidelines for reporting and addressing security issues.
 
 ## 2. Scope
 
-This security policy applies to all contributors, maintainers, and users of the open-source repository hosted by Sandeep Tembare
+This security policy applies to all contributors, maintainers, and users of the open-source repository hosted by User 
 
 ## 3. Security Vulnerability Reporting
 
@@ -43,6 +43,6 @@ All contributors, maintainers, and users of the open-source repository are encou
 
 ## 7. Conclusion
 
-Security is of paramount importance to Ceataec AS, and we appreciate the efforts of all individuals who contribute to maintaining the security and integrity of our open-source repository. By working together and adhering to this security policy, we can ensure a safer and more secure environment for our software and its users.
+Security is of paramount importance to User, and we appreciate the efforts of all individuals who contribute to maintaining the security and integrity of our open-source repository. By working together and adhering to this security policy, we can ensure a safer and more secure environment for our software and its users.
 
 If you have any questions or concerns regarding this security policy, please contact us at abc@gmail.com.
