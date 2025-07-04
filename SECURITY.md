@@ -2,15 +2,15 @@
 
 ## 1. Introduction
 
-This document outlines the security policy for the open-source repository maintained by Ceataec AS. The purpose of this policy is to ensure the security and integrity of the software contained within the repository and to provide guidelines for reporting and addressing security issues.
+This document outlines the security policy for the open-source repository maintained by Sandeep Tembare The purpose of this policy is to ensure the security and integrity of the software contained within the repository and to provide guidelines for reporting and addressing security issues.
 
 ## 2. Scope
 
-This security policy applies to all contributors, maintainers, and users of the open-source repository hosted by Ceataec AS.
+This security policy applies to all contributors, maintainers, and users of the open-source repository hosted by Sandeep Tembare
 
 ## 3. Security Vulnerability Reporting
 
-Security vulnerabilities in the open-source repository should be reported promptly to the designated email address: opensource@ceataec.com. Please provide as much detail as possible, including steps to reproduce the vulnerability, potential impact, and any mitigating factors.
+Security vulnerabilities in the open-source repository should be reported promptly to the designated email address: abc@gmail.com. Please provide as much detail as possible, including steps to reproduce the vulnerability, potential impact, and any mitigating factors.
 
 Upon receiving a security vulnerability report, the repository maintainers will acknowledge receipt, and will work diligently to assess and address the reported issue.
 
@@ -45,4 +45,4 @@ All contributors, maintainers, and users of the open-source repository are encou
 
 Security is of paramount importance to Ceataec AS, and we appreciate the efforts of all individuals who contribute to maintaining the security and integrity of our open-source repository. By working together and adhering to this security policy, we can ensure a safer and more secure environment for our software and its users.
 
-If you have any questions or concerns regarding this security policy, please contact us at opensource@ceataec.com.
+If you have any questions or concerns regarding this security policy, please contact us at abc@gmail.com.
