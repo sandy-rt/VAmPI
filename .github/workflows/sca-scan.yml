@@ -32,6 +32,10 @@ jobs:
           unzip dependency-check.zip
           chmod +x dependency-check/bin/dependency-check.sh
 
+      # Create output directory for Dependency-Check
+      - name: Create reports directory
+        run: mkdir -p reports
+
       # Run OWASP Dependency-Check
       - name: Run Dependency-Check
         run: |
