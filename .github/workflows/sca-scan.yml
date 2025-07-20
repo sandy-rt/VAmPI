@@ -1,0 +1,70 @@
+name: SCA Scan for Python Repository
+
+on:
+  workflow_dispatch: # Manual trigger only
+
+jobs:
+  sca-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' # Adjust to your project's Python version
+
+      # Install project dependencies (if needed for Dependency-Check)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # Install OWASP Dependency-Check
+      - name: Install OWASP Dependency-Check
+        run: |
+          VERSION=$(curl -s https://dependency-check.github.io/DependencyCheck/current.txt)
+          curl -Ls "https://github.com/dependency-check/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" --output dependency-check.zip
+          unzip dependency-check.zip
+          chmod +x dependency-check/bin/dependency-check.sh
+
+      # Run OWASP Dependency-Check
+      - name: Run Dependency-Check
+        run: |
+          ./dependency-check/bin/dependency-check.sh --scan . --format ALL --project "${{ github.repository }}" --out reports/ --noupdate
+        continue-on-error: true # Continue even if vulnerabilities are found
+
+      # Install Syft
+      - name: Install Syft
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+
+      # Install Grype
+      - name: Install Grype
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+
+      # Generate SBOM with Syft
+      - name: Generate SBOM
+        run: |
+          syft dir:. -o cyclonedx-json > sbom.json
+
+      # Scan SBOM with Grype
+      - name: Scan SBOM with Grype
+        run: |
+          grype sbom:./sbom.json -o json > grype-report.json
+        continue-on-error: true
+
+      # Upload scan reports and SBOM
+      - name: Upload SCA Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: sca-reports
+          path: |
+            reports/
+            sbom.json
+            grype-report.json
