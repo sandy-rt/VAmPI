@@ -36,10 +36,15 @@ jobs:
       - name: Create reports directory
         run: mkdir -p reports
 
+      # Update Dependency-Check database
+      - name: Update Dependency-Check Database
+        run: |
+          ./dependency-check/bin/dependency-check.sh --updateonly
+
       # Run OWASP Dependency-Check
       - name: Run Dependency-Check
         run: |
-          ./dependency-check/bin/dependency-check.sh --scan . --format ALL --project "${{ github.repository }}" --out reports/ --noupdate
+          ./dependency-check/bin/dependency-check.sh --scan . --format ALL --project "${{ github.repository }}" --out reports/
         continue-on-error: true # Continue even if vulnerabilities are found
 
       # Install Syft
